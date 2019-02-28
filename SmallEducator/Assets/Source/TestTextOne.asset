@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c728d5147dd0442af1a3d3022b3360, type: 3}
+  m_Script: {fileID: 11500000, guid: f5623af72c07a9e4995699ea0f41b47b, type: 3}
   m_Name: TestTextOne
   m_EditorClassIdentifier: 
