@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  progress:
+    env_file: .env
+    container_name: progress
+    build: ./Progress
+    command: sh start-sail.sh
+    ports:
+      - "${PRO_PORT}:${PRO_PORT}"
+
+  quiz_service:
+    env_file: .env
+    container_name: QuizService
+    build: ./QuizService
+    command: sh start-sail.sh
+    ports:
+      - "${QUIZ_PORT}:${QUIZ_PORT}"
+
+  login_service:
+    env_file: .env
+    container_name: LoginService
+    build: ./LoginService
+    command: sh start-sail.sh
+    ports:
+      - "${LOGIN_PORT}:${LOGIN_PORT}"
