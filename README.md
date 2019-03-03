@@ -2,8 +2,10 @@
 
 Unity Client 2018.2.16f1
 
-Services
+Gateway
 - ApiGateway
+
+Services
 - AuthenticationSerivce (+)
 - CommunicationSerivce
 - GenericService (+)
