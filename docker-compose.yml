@@ -2,6 +2,14 @@ version: '3'
 
 services:
 
+  generic_service:
+    env_file: .env
+    container_name: GenericService
+    build: ./GenericService
+    command: sh start-sail.sh
+    ports:
+      - "${GEN_PORT}:${GEN_PORT}"
+
   progress:
     env_file: .env
     container_name: progress
