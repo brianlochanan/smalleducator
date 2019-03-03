@@ -27,11 +27,11 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/generic-service.git"
+    "url": "git://github.com/anonymous node/sails user/quiz-service"
   },
   "author": "anonymous node/sails user",
   "license": "",
   "engines": {
-    "node": "^10.12"
+    "node": "^10.15"
   }
 }
