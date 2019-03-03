@@ -12,9 +12,6 @@ Services
 - QuizSerice (+)
 
 Technology stack
-
-Node V10.
-
-Sails v1.1.
-
-MySQL vx.x.
+- Node V10.
+- Sails V1.1.
+- MySQL Vx.x.
