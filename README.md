@@ -17,3 +17,6 @@ Technology stack
 - Node V10.
 - Sails V1.1.
 - MySQL Vx.x.
+
+Installation
+docker-compose up
