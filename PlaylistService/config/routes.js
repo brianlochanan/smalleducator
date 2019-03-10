@@ -20,8 +20,6 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /test': { controller: 'TestController', action: 'checkDb' },
-  'GET /playlist': { controller: 'PlaylistController', action: 'checkPlaylist' },
 
 
   /***************************************************************************
