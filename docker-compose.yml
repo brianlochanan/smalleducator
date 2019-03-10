@@ -6,6 +6,14 @@ services:
     container_name: progress_db
     image: mysql:5.7
 
+  generic_service:
+    env_file: .env
+    container_name: GenericService
+    build: ./GenericService
+    command: sh start-sail.sh
+    ports:
+      - "${GEN_PORT}:${GEN_PORT}"
+
   progress:
     env_file: .env
     container_name: progress
