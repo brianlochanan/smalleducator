@@ -28,3 +28,5 @@ sudo docker run --net smalleducator --ip 172.32.0.2 -it -d -p 3306:3306 sqldb
 # ---LookUp IP replace <> with your containerID---
 #sudo docker inspect <containerId> | grep '"IPAddress"' | head -n 1
 
+#sails lift --port 8004
+
