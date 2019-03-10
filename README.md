@@ -16,7 +16,7 @@ Services
 Technology stack
 - Node V10.
 - Sails V1.1.
-- MySQL Vx.x.
+- MySQL V5.7.
 
 Installation
 
