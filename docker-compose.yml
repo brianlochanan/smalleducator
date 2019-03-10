@@ -5,14 +5,10 @@ services:
     env_file: .env
     container_name: progress_db
     image: mysql:5.7
-
-  generic_service:
-    env_file: .env
-    container_name: GenericService
-    build: ./GenericService
-    command: sh start-sail.sh
     ports:
-      - "${GEN_PORT}:${GEN_PORT}"
+      - "${PRO_DB_PORT}:3306"
+    networks:
+      - progress_backend
 
   progress:
     env_file: .env
@@ -21,8 +17,17 @@ services:
     command: sh start-sail.sh
     ports:
       - "${PRO_PORT}:${PRO_PORT}"
-    links:
-      - progress_db
+    networks:
+      - progress_backend
+
+  quiz_db:
+    env_file: .env
+    container_name: quiz_db
+    image: mysql:5.7
+    ports:
+      - "${QUIZ_DB_PORT}:3306"
+    networks:
+      - quiz_backend
 
   quiz_service:
     env_file: .env
@@ -31,6 +36,17 @@ services:
     command: sh start-sail.sh
     ports:
       - "${QUIZ_PORT}:${QUIZ_PORT}"
+    networks:
+      - quiz_backend
+
+  login_db:
+    env_file: .env
+    container_name: login_db
+    image: mysql:5.7
+    ports:
+      - "${LOGIN_DB_PORT}:3306"
+    networks:
+      - login_backend
 
   login_service:
     env_file: .env
@@ -39,3 +55,10 @@ services:
     command: sh start-sail.sh
     ports:
       - "${LOGIN_PORT}:${LOGIN_PORT}"
+    networks:
+      - login_backend
+
+networks:
+  progress_backend: {}
+  quiz_backend: {}
+  login_backend: {}

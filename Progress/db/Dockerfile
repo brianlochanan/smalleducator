@@ -1,1 +1,3 @@
 FROM mysql:5.7
+
+EXPOSE ${PRO_DB_PORT}:3306
