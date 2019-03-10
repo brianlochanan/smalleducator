@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  progress_db:
+    env_file: .env
+    container_name: progress_db
+    image: mysql:5.7
 
   generic_service:
     env_file: .env
@@ -17,6 +21,8 @@ services:
     command: sh start-sail.sh
     ports:
       - "${PRO_PORT}:${PRO_PORT}"
+    links:
+      - progress_db
 
   quiz_service:
     env_file: .env
