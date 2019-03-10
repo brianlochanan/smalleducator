@@ -22,5 +22,5 @@ Technology stack
 Prequirements
 - Docker / Docker Toolbox
 
-# Run program
+## Run program
 docker-compose up
