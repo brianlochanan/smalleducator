@@ -19,8 +19,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/home': { view: 'pages/homepage' },
-  '/hello': 'mainController.js'
+  '/': { view: 'pages/homepage' },
+  'GET /test': { controller: 'TestController', action: "checkDb" }
 
 
   /***************************************************************************
