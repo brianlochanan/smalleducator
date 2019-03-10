@@ -8,8 +8,9 @@ Gateway
 Services
 - AuthenticationSerivce (+)
 - CommunicationSerivce
+- GenericDatabase (+)
 - GenericService (+)
-- PlaylistService
+- PlaylistService (+)
 - ProgressService (+)
 - QuizSerice (+)
 
@@ -18,6 +19,8 @@ Technology stack
 - Sails V1.1.
 - MySQL V5.7.
 
-Installation
+Prequirements
+- Docker / Docker Toolbox
 
+# Run program
 docker-compose up
