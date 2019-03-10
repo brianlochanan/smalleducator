@@ -1,0 +1,7 @@
+Create value in attribute test
+
+http://172.32.0.3:8004/Playlist/Create?test=5
+
+Call model directly and return all data
+
+http://172.32.0.3:8004/Playlist/

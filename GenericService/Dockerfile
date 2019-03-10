@@ -10,5 +10,3 @@ RUN npm install
 COPY . .
 
 EXPOSE 8004
-
-RUN sails lift --port 8004 --verbose

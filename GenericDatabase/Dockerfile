@@ -1,5 +1,5 @@
 # Pull last version of mySql Container
-FROM mysql:latest
+FROM mysql:5.7
 
 # Environment
 ENV MYSQL_ROOT_PASSWORD=root
