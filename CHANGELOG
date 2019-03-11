@@ -1,0 +1,5 @@
+# Version 2.0
+- Adding Docker Containers compose File.
+- Adding Docker Files as blueprint for services such as node V10 container and sql 5.7 container.
+- Create a genericsService which can be used by all specialised service.
+- Create a genericdDatabase which can be used by all specialised service.
