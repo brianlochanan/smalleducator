@@ -27,7 +27,7 @@ install Docker Toolbox
 
 install VM virtualBox
 
-create a VM named 'docker'
+create a VM named 'docker'. Docker toolbox might give this vm the name 'default'.
 
 git clone git@gitlab.fdmci.hva.nl:lieropc001/smalleducator.git
 

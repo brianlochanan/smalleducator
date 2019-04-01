@@ -10,15 +10,15 @@ services:
     networks:
       - progress_backend
 
-  progress:
-    env_file: .env
-    container_name: progress
-    build: ./Progress
-    command: sh start-sail.sh
-    ports:
-      - "${PRO_PORT}:${PRO_PORT}"
-    networks:
-      - progress_backend
+  # progress:
+    # env_file: .env
+    # container_name: progress
+    # build: ./Progress
+    # command: sh start-sail.sh
+    # ports:
+      # - "${PRO_PORT}:${PRO_PORT}"
+    # networks:
+      # - progress_backend
 
   quiz_db:
     env_file: .env
@@ -38,6 +38,26 @@ services:
       - "${QUIZ_PORT}:${QUIZ_PORT}"
     networks:
       - quiz_backend
+      
+
+  playlist_db:
+    env_file: .env
+    container_name: playlist_db
+    image: mysql:5.7
+    ports:
+      - "${PLAYLIST_DB_PORT}:3306"
+    networks:
+      - playlist_backend
+
+  playlist_service:
+    env_file: .env
+    container_name: PlaylistService
+    build: ./PlaylistService
+    command: sh start-sail.sh
+    ports:
+      - "${PLAYLIST_PORT}:${PLAYLIST_PORT}"
+    networks:
+      - playlist_backend
 
   login_db:
     env_file: .env
@@ -61,4 +81,5 @@ services:
 networks:
   progress_backend: {}
   quiz_backend: {}
+  playlist_backend: {}
   login_backend: {}
