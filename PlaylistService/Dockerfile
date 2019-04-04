@@ -6,6 +6,7 @@ WORKDIR /app
 
 COPY package.json package.json
 RUN npm install
+RUN npm install sails-mysql --save --save-exact
 
 COPY . .
 
