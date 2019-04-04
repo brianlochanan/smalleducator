@@ -10,8 +10,11 @@ module.exports = {
   attributes: {
 	  
 	id: { type: 'number', required: true , autoIncrement: true},
-    id_playlist: { type: 'number', required: true },
+    //id_playlist: { type: 'number', required: true },
     display_time: { type: 'number', required: true },
+	owner: {
+      model: 'playlist'
+    },
   },
 
 };

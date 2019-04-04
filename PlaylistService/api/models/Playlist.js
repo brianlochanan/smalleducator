@@ -12,6 +12,10 @@ module.exports = {
 	id: { type: 'number', required: true , autoIncrement: true},
     course: { type: 'string', required: true },
     week: { type: 'string', required: true },
+	has_frames: {
+      collection: 'frame',
+      via: 'owner'
+    },
   },
 
 };

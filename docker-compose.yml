@@ -38,7 +38,6 @@ services:
       - "${QUIZ_PORT}:${QUIZ_PORT}"
     networks:
       - quiz_backend
-      
 
   playlist_db:
     env_file: .env
