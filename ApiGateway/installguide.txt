@@ -1,3 +1,7 @@
 # Install
 
 npm install -g express-gateway
+
+# Create Gateway
+
+eg gateway create
