@@ -12,8 +12,20 @@ module.exports = {
 	id: { type: 'number', required: true , autoIncrement: true},
     //id_playlist: { type: 'number', required: true },
     display_time: { type: 'number', required: true },
-	owner: {
+	in_playlist: {
       model: 'playlist'
+    },
+    has_text: {
+      collection: 'text',
+      via: 'in_frame'
+    },
+    has_image: {
+      collection: 'image',
+      via: 'in_frame'
+    },
+    has_video: {
+      collection: 'video',
+      via: 'in_frame'
     },
   },
 

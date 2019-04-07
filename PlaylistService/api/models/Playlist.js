@@ -14,7 +14,7 @@ module.exports = {
     week: { type: 'string', required: true },
 	has_frames: {
       collection: 'frame',
-      via: 'owner'
+      via: 'in_playlist'
     },
   },
 

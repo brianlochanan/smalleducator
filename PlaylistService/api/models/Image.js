@@ -13,7 +13,9 @@ module.exports = {
 	id_frame: { type: 'number', required: true},
     path: { type: 'string', required: true },
     type: { type: 'string', required: true },
+    in_frame: {
+      model: 'frame'
+    },
   },
-
 };
 
