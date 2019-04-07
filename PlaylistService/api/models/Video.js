@@ -10,11 +10,10 @@ module.exports = {
   attributes: {
 	  
 	id: { type: 'number', required: true , autoIncrement: true},
-	id_frame: { type: 'number', required: true},
     path: { type: 'string', required: true },
-    type: { type: 'string', required: true },
+    type: { type: 'string', required: true , isIn: ['local', 'web']},
     in_frame: {
-      model: 'frame'
+      model: 'frame', required: true
     },
   },
 };

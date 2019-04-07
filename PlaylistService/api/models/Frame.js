@@ -10,10 +10,9 @@ module.exports = {
   attributes: {
 	  
 	id: { type: 'number', required: true , autoIncrement: true},
-    //id_playlist: { type: 'number', required: true },
     display_time: { type: 'number', required: true },
 	in_playlist: {
-      model: 'playlist'
+      model: 'playlist', required: true,
     },
     has_text: {
       collection: 'text',

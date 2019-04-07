@@ -1,14 +1,14 @@
 version: '3'
 
 services:
-  progress_db:
-    env_file: .env
-    container_name: progress_db
-    image: mysql:5.7
-    ports:
-      - "${PRO_DB_PORT}:3306"
-    networks:
-      - progress_backend
+  # progress_db:
+  #   env_file: .env
+  #   container_name: progress_db
+  #   image: mysql:5.7
+  #   ports:
+  #     - "${PRO_DB_PORT}:3306"
+  #   networks:
+  #     - progress_backend
 
   # progress:
     # env_file: .env
@@ -20,24 +20,24 @@ services:
     # networks:
       # - progress_backend
 
-  quiz_db:
-    env_file: .env
-    container_name: quiz_db
-    image: mysql:5.7
-    ports:
-      - "${QUIZ_DB_PORT}:3306"
-    networks:
-      - quiz_backend
+  # quiz_db:
+  #   env_file: .env
+  #   container_name: quiz_db
+  #   image: mysql:5.7
+  #   ports:
+  #     - "${QUIZ_DB_PORT}:3306"
+  #   networks:
+  #     - quiz_backend
 
-  quiz_service:
-    env_file: .env
-    container_name: QuizService
-    build: ./QuizService
-    command: sh start-sail.sh
-    ports:
-      - "${QUIZ_PORT}:${QUIZ_PORT}"
-    networks:
-      - quiz_backend
+  # quiz_service:
+  #   env_file: .env
+  #   container_name: QuizService
+  #   build: ./QuizService
+  #   command: sh start-sail.sh
+  #   ports:
+  #     - "${QUIZ_PORT}:${QUIZ_PORT}"
+  #   networks:
+  #     - quiz_backend
 
   playlist_db:
     env_file: .env
@@ -58,24 +58,24 @@ services:
     networks:
       - playlist_backend
 
-  login_db:
-    env_file: .env
-    container_name: login_db
-    image: mysql:5.7
-    ports:
-      - "${LOGIN_DB_PORT}:3306"
-    networks:
-      - login_backend
+  # login_db:
+  #   env_file: .env
+  #   container_name: login_db
+  #   image: mysql:5.7
+  #   ports:
+  #     - "${LOGIN_DB_PORT}:3306"
+  #   networks:
+  #     - login_backend
 
-  login_service:
-    env_file: .env
-    container_name: LoginService
-    build: ./LoginService
-    command: sh start-sail.sh
-    ports:
-      - "${LOGIN_PORT}:${LOGIN_PORT}"
-    networks:
-      - login_backend
+  # login_service:
+  #   env_file: .env
+  #   container_name: LoginService
+  #   build: ./LoginService
+  #   command: sh start-sail.sh
+  #   ports:
+  #     - "${LOGIN_PORT}:${LOGIN_PORT}"
+  #   networks:
+  #     - login_backend
 
 networks:
   progress_backend: {}
