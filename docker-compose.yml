@@ -58,7 +58,27 @@ services:
     networks:
       - login_backend
 
+  communication_db:
+    env_file: .env
+    container_name: communication_db
+    image: mysql:5.7
+    ports:
+      - "${COM_DB_PORT}:3306"
+    networks:
+      - communication_backend
+
+  communication_service:
+    env_file: .env
+    container_name: communication_service
+    build: ./CommunicationService
+    command: sh start-sail.sh
+    ports:
+      - "${COM_PORT}:${COM_PORT}"
+    networks:
+      - communication_backend
+
 networks:
   progress_backend: {}
   quiz_backend: {}
   login_backend: {}
+  communication_backend: {}
