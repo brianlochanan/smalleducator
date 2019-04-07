@@ -52,3 +52,17 @@ install Node 10.15.3
 do 'npm install' for every services
 
 do npm lift for every service
+
+## Create Network
+sudo docker network create --subnet=172.32.0.0/24 smalleducator #http://jodies.de/ipcalc?host=172.32.0.1&mask1=24&mask2=
+
+## Exposed of service
+PRO_PORT=8001
+QUIZ_PORT=8002
+LOGIN_PORT=8003
+GEN_PORT=8004
+
+PRO_DB_PORT=9001
+QUIZ_DB_PORT=9002
+LOGIN_DB_PORT=9003
+GEN_DB_PORT=9004

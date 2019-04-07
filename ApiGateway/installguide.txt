@@ -1,7 +1,15 @@
-# Install
+# Deploy Network, local usage (deployNetwork.sh)
+docker network create --subnet=172.32.0.0/24 smalleducator
 
-npm install -g express-gateway
+# Endpoint of Gateway
 
-# Create Gateway
+Docker Exposed 8000:API Running 8080 
 
-eg gateway create
+Gateway.config.yml contains the port configuration
+
+# Building (deployLocal.sh)
+docker build --no-cache -t api-gateway .
+docker run --net smalleducator --ip 172.32.0.2 -it -d -p 8080:8080 api-gateway
+
+# Start Gateway
+npm start
