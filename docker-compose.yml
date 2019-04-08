@@ -11,44 +11,6 @@ services:
     networks:
       - api-gateway
 
-  progress_db:
-    env_file: .env
-    container_name: progress_db
-    image: mysql:5.7
-    ports:
-      - "${PRO_DB_PORT}:3306"
-    networks:
-      - progress_backend
-
-  # progress:
-    # env_file: .env
-    # container_name: progress
-    # build: ./Progress
-    # command: sh start-sail.sh
-    # ports:
-      # - "${PRO_PORT}:${PRO_PORT}"
-    # networks:
-      # - progress_backend
-
-  # quiz_db:
-  #   env_file: .env
-  #   container_name: quiz_db
-  #   image: mysql:5.7
-  #   ports:
-  #     - "${QUIZ_DB_PORT}:3306"
-  #   networks:
-  #     - quiz_backend
-
-  # quiz_service:
-  #   env_file: .env
-  #   container_name: QuizService
-  #   build: ./QuizService
-  #   command: sh start-sail.sh
-  #   ports:
-  #     - "${QUIZ_PORT}:${QUIZ_PORT}"
-  #   networks:
-  #     - quiz_backend
-
   playlist_db:
     env_file: .env
     container_name: playlist_db
@@ -87,10 +49,27 @@ services:
     networks:
       - class_backend
 
+  communication_db:
+    env_file: .env
+    container_name: communication_db
+    image: mysql:5.7
+    ports:
+      - "${COM_DB_PORT}:3306"
+    networks:
+      - communication_backend
+
+  communication_service:
+    env_file: .env
+    container_name: communication_service
+    build: ./CommunicationService
+    command: sh start-sail.sh
+    ports:
+      - "${COM_PORT}:${COM_PORT}"
+    networks:
+      - communication_backend
+
 networks:
   api-gateway: {}
-  progress_backend: {}
-  quiz_backend: {}
   playlist_backend: {}
-  login_backend: {}
   class_backend: {}
+  communication_backend: {}
