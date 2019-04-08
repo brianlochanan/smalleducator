@@ -20,6 +20,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'get /Playlist': 'PlaylistController.getPlaylist',
+  'get /CompletePlaylist': 'PlaylistController.getCompletePlaylist',
 
 
   /***************************************************************************
