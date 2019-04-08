@@ -20,53 +20,53 @@ services:
     networks:
       - progress_backend
 
-  progress:
-    env_file: .env
-    container_name: progress
-    build: ./Progress
-    command: sh start-sail.sh
-    ports:
-      - "${PRO_PORT}:${PRO_PORT}"
-    networks:
-      - progress_backend
+  # progress:
+    # env_file: .env
+    # container_name: progress
+    # build: ./Progress
+    # command: sh start-sail.sh
+    # ports:
+      # - "${PRO_PORT}:${PRO_PORT}"
+    # networks:
+      # - progress_backend
 
-  quiz_db:
+  # quiz_db:
+  #   env_file: .env
+  #   container_name: quiz_db
+  #   image: mysql:5.7
+  #   ports:
+  #     - "${QUIZ_DB_PORT}:3306"
+  #   networks:
+  #     - quiz_backend
+
+  # quiz_service:
+  #   env_file: .env
+  #   container_name: QuizService
+  #   build: ./QuizService
+  #   command: sh start-sail.sh
+  #   ports:
+  #     - "${QUIZ_PORT}:${QUIZ_PORT}"
+  #   networks:
+  #     - quiz_backend
+
+  playlist_db:
     env_file: .env
-    container_name: quiz_db
+    container_name: playlist_db
     image: mysql:5.7
     ports:
-      - "${QUIZ_DB_PORT}:3306"
+      - "${PLAYLIST_DB_PORT}:3306"
     networks:
-      - quiz_backend
+      - playlist_backend
 
-  quiz_service:
+  playlist_service:
     env_file: .env
-    container_name: QuizService
-    build: ./QuizService
+    container_name: PlaylistService
+    build: ./PlaylistService
     command: sh start-sail.sh
     ports:
-      - "${QUIZ_PORT}:${QUIZ_PORT}"
+      - "${PLAYLIST_PORT}:${PLAYLIST_PORT}"
     networks:
-      - quiz_backend
-
-  login_db:
-    env_file: .env
-    container_name: login_db
-    image: mysql:5.7
-    ports:
-      - "${LOGIN_DB_PORT}:3306"
-    networks:
-      - login_backend
-
-  login_service:
-    env_file: .env
-    container_name: LoginService
-    build: ./LoginService
-    command: sh start-sail.sh
-    ports:
-      - "${LOGIN_PORT}:${LOGIN_PORT}"
-    networks:
-      - login_backend
+      - playlist_backend
 
   class_management_db:
     env_file: .env
@@ -91,5 +91,6 @@ networks:
   api-gateway: {}
   progress_backend: {}
   quiz_backend: {}
+  playlist_backend: {}
   login_backend: {}
   class_backend: {}

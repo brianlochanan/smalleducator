@@ -20,6 +20,17 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'get /Playlist': 'PlaylistController.getPlaylist',
+  'get /frames': 'FrameController.getFrames',
+  'get /text': 'TextController.getText',
+  'get /image': 'ImageController.getImage',
+  'get /video': 'VideoController.getVideo',
+  'create /playlist': 'PlaylistController.createPlaylist',
+  'create /frame': 'FrameController.createFrame',
+  'create /text': 'TextController.createText',
+  'create /image': 'ImageController.createImage',
+  'create /video': 'VideoController.createVideo',
+  
 
 
   /***************************************************************************
