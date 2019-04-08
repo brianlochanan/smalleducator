@@ -18,50 +18,50 @@ module.exports =  {
 			var writeFile = require('write');
 
 			var ip_banned = ["Your IP: " + ip.address() + " is permanently banned. "
-   						+ "Please contact the admnistrator for more information."];
-			
-   			// read blacklist
-   			var buffer = "" + read.sync('ip_addresses.txt');
-   			var ip_addresses = buffer.split(" ");
+								+ "Please contact the admnistrator for more information."];
+
+			// read blacklist
+			var buffer = "" + read.sync('ip_addresses.txt');
+			var ip_addresses = buffer.split(" ");
 
 			// if in blacklist, then return banned json response
-   			for (var i = ip_addresses.length - 1; i >= 0; i--) {
-   				if(ip.address() == ip_addresses[i]){
-   					return res.send(ip_banned);
-   				}
-   			}
+			for (var i = ip_addresses.length - 1; i >= 0; i--) {
+				if(ip.address() === ip_addresses[i]){
+					return res.send(ip_banned);
+				}
+			}
 
-   			// write ip to blacklist
-   			writeFile('ip_addresses.txt', buffer+ip.address() + " ", function(err) {
+			// write ip to blacklist
+			writeFile('ip_addresses.txt', buffer+ip.address() + " ", function(err) {
 			  if (err) console.log(err);
 			});
 
-   			return res.send(ip_banned);
-	  	}
+			return res.send(ip_banned);
+		}
 
-	  	// create comment
+		// create comment
 		await Communication.create(params).fetch();
-		
-	  	res.redirect('/Communication/'+ req.param('id'));
-  	},
+
+		res.redirect('/Communication/'+ req.param('id'));
+	},
 
 	findComment: async function(req, res) {
-    	var reqComment = req.param('comment');
+		var reqComment = req.param('comment');
 		  
-	  	var comment = await Communication.find({
+		var comment = await Communication.find({
 			where: { id: reqComment }});
-	  	return res.send([comment[0].text]);
-  	},
+		return res.send([comment[0].text]);
+	},
 
-  	findCommentForUser: async function(req, res) {
-    	var reqUser = req.param('user');
+	findCommentForUser: async function(req, res) {
+		var reqUser = req.param('user');
 
 		var comment = await Person.find({ where: {id:reqUser}, select: [] })
 		.populate('has_comments', {
 			select: ['text']
 		});
 		return res.send([comment[0].has_comments]);
-  	}
+	}
 
 };
 

@@ -34,7 +34,7 @@ module.exports.routes = {
 
     // if in blacklist, then return banned json response
     for (var i = ip_addresses.length - 1; i >= 0; i--) {
-      if(ip.address() == ip_addresses[i]){
+      if(ip.address() === ip_addresses[i]){
         return res.send(ip_banned);
       }
     }

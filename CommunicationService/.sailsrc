@@ -1,6 +1,8 @@
 {
   "generators": {
-    "modules": {}
+    "modules": {
+    	"test": "sails-generate-unittest"
+    }
   },
   "_generatedWith": {
     "sails": "1.1.0",

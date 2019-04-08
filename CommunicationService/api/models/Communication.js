@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-
+  datastore: 'default',
   attributes: {
       
     id: { type: 'number', required: true , autoIncrement: true },
