@@ -9,9 +9,9 @@ module.exports = {
 
   attributes: {
 
-	id: { type: 'number', required: true , autoIncrement: true},
+    id: { type: 'number', autoIncrement: true },
     path: { type: 'string', required: true },
-    type: { type: 'string', required: true , isIn: ['web', 'web-background', 'local', 'local-background']},
+    type: { type: 'string', required: true, isIn: ['web', 'web-background', 'local', 'local-background'] },
     in_frame: {
       model: 'frame', required: true
     },

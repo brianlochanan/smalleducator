@@ -8,11 +8,11 @@
 module.exports = {
 
   attributes: {
-	  
-	id: { type: 'number', required: true , autoIncrement: true},
+
+    id: { type: 'number', autoIncrement: true },
     course: { type: 'string', required: true },
     week: { type: 'string', required: true },
-	has_frames: {
+    has_frames: {
       collection: 'frame',
       via: 'in_playlist'
     },

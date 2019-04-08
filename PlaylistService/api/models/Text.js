@@ -9,9 +9,9 @@ module.exports = {
 
   attributes: {
 
-	id: { type: 'number', required: true , autoIncrement: true},
+    id: { type: 'number', autoIncrement: true },
     text_value: { type: 'string', required: true },
-    type: { type: 'string', required: true , isIn: ['text', 'title', 'sub_title']},
+    type: { type: 'string', required: true, isIn: ['text', 'title', 'sub_title'] },
     in_frame: {
       model: 'frame', required: true
     },
