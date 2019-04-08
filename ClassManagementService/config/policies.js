@@ -24,6 +24,8 @@ module.exports.policies = {
     'findOne': true,
     'create': 'isTeacher',
     'remove': 'isTeacher',
+    'enroll': true,
+    'addEnrolKeys': 'isTeacher',
   }
 
 };
