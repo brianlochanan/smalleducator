@@ -17,6 +17,13 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
+  ClassController: {
+    '*': false,
+    'find': true,
+    'findOne': true,
+    'create': 'isTeacher',
+    'remove': 'isTeacher',
+  }
 
 };
