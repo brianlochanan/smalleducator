@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  api-gateway:
+    env_file: .env
+    container_name: api-gateway
+    build: ./ApiGateway
+    command: sh start-gateway.sh
+    ports:
+      - "${API_GATEWAY_PORT}:8080"
+    networks:
+      - api-gateway
+
   progress_db:
     env_file: .env
     container_name: progress_db
@@ -78,6 +88,7 @@ services:
       - class_backend
 
 networks:
+  api-gateway: {}
   progress_backend: {}
   quiz_backend: {}
   login_backend: {}

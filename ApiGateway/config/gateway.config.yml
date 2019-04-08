@@ -1,0 +1,66 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  api_progess:
+    host: ${HOST_IP}
+    paths: 
+      -  '/FrameProgress'
+      -  '/LessonProgress'
+  api_quiz:
+    host: ${HOST_IP}
+    paths: 
+      -  '/Quiz'
+  api_login:
+    host: ${HOST_IP}
+    paths: 
+      -  '/Login'
+serviceEndpoints:
+  progressService:
+    url: 'http://${HOST_IP}:8001'
+  quizService:
+    url: 'http://${HOST_IP}:8002'
+  loginService:
+    url: 'http://${HOST_IP}:8003'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  pipeline1:
+    apiEndpoints:
+      - api_progess
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: progressService 
+              changeOrigin: true
+  pipeline2:
+    apiEndpoints:
+      - api_quiz
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: quizService 
+              changeOrigin: true
+  pipeline3:
+    apiEndpoints:
+      - api_login
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: loginService 
+              changeOrigin: true
