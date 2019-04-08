@@ -21,7 +21,10 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'get /Playlist': 'PlaylistController.getPlaylist',
-  'get /CompletePlaylist': 'PlaylistController.getCompletePlaylist',
+  'get /frames': 'PlaylistController.getFrames',
+  'get /text': 'PlaylistController.getText',
+  'get /image': 'PlaylistController.getImage',
+  'get /video': 'PlaylistController.getVideo',
 
 
   /***************************************************************************
