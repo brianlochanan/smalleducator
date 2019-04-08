@@ -8,8 +8,11 @@
 module.exports = {
 
 	getPlaylist: async function (req, res) {
+
+		// The id from the playlist you want to retrieve
 		var reqPlaylist = req.param('id');
 
+		// Returns the requested opject
 		var playlist = await Playlist.find({
 			where: { id: playlist }, select: ['course', 'week']
 		});
@@ -22,6 +25,7 @@ module.exports = {
 			course: req.param('course'),
 			week: req.param('week'),
 		}
+		// Displays the json after a sucessfull create request. Otherwise returns the error message
 		Playlist.create(data).fetch().exec(function (err, playlist) {
 			if (err) return (err);
 			return res.json(playlist);

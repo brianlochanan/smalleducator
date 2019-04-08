@@ -8,6 +8,7 @@
 module.exports = {
 
 	getImage: async function (req, res) {
+		// The frame id for which you want to retrieve the associated image elements
 		var reqFrame = req.param('id');
 
 		var frame = await Frame.find({ where: { id: reqFrame } })
@@ -24,6 +25,7 @@ module.exports = {
 			type: req.param('type'),
 			in_frame: req.param('in_frame'),
 		}
+		// Displays the json after a sucessfull create request. Otherwise returns the error message
 		Image.create(data).fetch().exec(function (err, image) {
 			if (err) return (err);
 			return res.json(image);
