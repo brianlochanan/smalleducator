@@ -68,8 +68,28 @@ services:
     networks:
       - login_backend
 
+  class_management_db:
+    env_file: .env
+    container_name: class_management_db
+    image: mysql:5.7
+    ports:
+      - "${CLASS_DB_PORT}:3306"
+    networks:
+      - class_backend
+
+  class_management_service:
+    env_file: .env
+    container_name: ClassManagementService
+    build: ./ClassManagementService
+    command: sh start-sail.sh
+    ports:
+      - "${CLASS_PORT}:${Class_PORT}"
+    networks:
+      - class_backend
+
 networks:
   api-gateway: {}
   progress_backend: {}
   quiz_backend: {}
   login_backend: {}
+  class_backend: {}
