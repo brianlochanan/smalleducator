@@ -16,6 +16,9 @@ module.exports = {
     owner: {
       model: 'person'
     },
+    comment: {
+      model: 'communication'
+    },
   },
 
 };

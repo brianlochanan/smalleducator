@@ -19,6 +19,29 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  // check if ip is banned
+  '*': function(req, res, next) {
+
+    var read = require('read-file');
+    var ip = require('ip');
+
+    var ip_banned = ["Your IP: " + ip.address() + " is permanently banned. "
+              + "Please contact the admnistrator for more information."];
+    
+    // read blacklist
+    var buffer = "" + read.sync('ip_addresses.txt');
+    var ip_addresses = buffer.split(" ");
+
+    // if in blacklist, then return banned json response
+    for (var i = ip_addresses.length - 1; i >= 0; i--) {
+      if(ip.address() == ip_addresses[i]){
+        return res.send(ip_banned);
+      }
+    }
+
+    //else check other routes
+    next();
+  },
   '/': { view: 'pages/homepage' },
   'get /findComment': 'CommunicationController.findComment',
   'get /findCommentForUser': 'CommunicationController.findCommentForUser',
