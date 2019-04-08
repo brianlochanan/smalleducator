@@ -1,5 +1,5 @@
 /**
- * Class.js
+ * Course.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -15,10 +15,10 @@ module.exports = {
       collection: 'enrollKey',
       via: 'belongs_to'
     },
-    persons: {
-      collection: 'person',
-      via: 'classes'
-    }
+    enrollKeys: {
+      collection: 'lesson',
+      via: 'course'
+    },
 
   },
 

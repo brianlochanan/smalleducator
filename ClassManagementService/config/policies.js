@@ -17,8 +17,8 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': true,
-  ClassController: {
+  '*': false,
+  LessonController: {
     '*': false,
     'find': true,
     'findOne': true,
@@ -26,6 +26,18 @@ module.exports.policies = {
     'remove': 'isTeacher',
     'enroll': true,
     'addEnrolKeys': 'isTeacher',
-  }
+  },
+
+  CourseController: {
+    '*': false,
+    'find': true,
+    'findOne': true,
+    'create': 'isTeacher',
+  },
+
+  PersonController: {
+    '*': false,
+    'create': true,
+  },
 
 };

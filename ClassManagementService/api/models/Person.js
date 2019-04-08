@@ -12,8 +12,8 @@ module.exports = {
     id: { type: 'number',  autoIncrement: true},
   	name: { type: 'string', required: true},
   	email: { type: 'string', required: true},
-    classes: {
-      collection: 'class',
+    lessons: {
+      collection: 'lesson',
       via: 'persons'
     }
 
