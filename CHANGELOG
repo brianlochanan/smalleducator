@@ -1,3 +1,9 @@
+#Version 3.0
+- Api Gateway
+- Communication Service
+- Playlist Service
+- StudentManagement Service
+
 # Version 2.0
 - Adding Docker Containers compose File.
 - Adding Docker Files as blueprint for services such as node V10 container and sql 5.7 container.
