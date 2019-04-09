@@ -45,7 +45,7 @@ services:
     build: ./ClassManagementService
     command: sh start-sail.sh
     ports:
-      - "${CLASS_PORT}:${Class_PORT}"
+      - "${CLASS_PORT}:${CLASS_PORT}"
     networks:
       - class_backend
 

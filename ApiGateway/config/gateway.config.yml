@@ -17,6 +17,23 @@ apiEndpoints:
     host: ${HOST_IP}
     paths: 
       -  '/Login'
+  api_playlist:
+    host: ${HOST_IP}
+    paths: 
+      -  /Playlist
+      -  /frames
+      -  /text
+      -  /image
+      -  /video
+  api_classManagement:
+    host: ${HOST_IP}
+    paths: 
+      -  /classManagement
+  api_communication:
+    host: ${HOST_IP}
+    paths: 
+      -  /findComment
+      -  /findCommentForUser
 serviceEndpoints:
   progressService:
     url: 'http://${HOST_IP}:8001'
@@ -24,6 +41,12 @@ serviceEndpoints:
     url: 'http://${HOST_IP}:8002'
   loginService:
     url: 'http://${HOST_IP}:8003'
+  playlistService:
+    url: 'http://${HOST_IP}:8005'
+  classManagementService:
+    url: 'http://${HOST_IP}:8008'
+  communicationService:
+    url: 'http://${HOST_IP}:8009'
 policies:
   - basic-auth
   - cors
@@ -63,4 +86,34 @@ pipelines:
       - proxy:
           - action:
               serviceEndpoint: loginService 
+              changeOrigin: true
+  pipeline4:
+    apiEndpoints:
+      - api_playlist
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: playlistService 
+              changeOrigin: true
+  pipeline5:
+    apiEndpoints:
+      - api_classManagement
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: classManagementService 
+              changeOrigin: true
+  pipeline6:
+    apiEndpoints:
+      - api_communication
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: communicationService 
               changeOrigin: true
