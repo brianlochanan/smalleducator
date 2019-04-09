@@ -5,7 +5,7 @@ services:
     env_file: .env
     container_name: api-gateway
     build: ./ApiGateway
-    command: sh start-gateway.sh
+    command: npm start
     ports:
       - "${API_GATEWAY_PORT}:8080"
     networks:
@@ -29,6 +29,7 @@ services:
       - "${PLAYLIST_PORT}:${PLAYLIST_PORT}"
     networks:
       - playlist_backend
+      - api-gateway
 
   class_management_db:
     env_file: .env
@@ -48,6 +49,7 @@ services:
       - "${CLASS_PORT}:${CLASS_PORT}"
     networks:
       - class_backend
+      - api-gateway
 
   communication_db:
     env_file: .env
@@ -67,6 +69,7 @@ services:
       - "${COM_PORT}:${COM_PORT}"
     networks:
       - communication_backend
+      - api-gateway
 
 networks:
   api-gateway: {}
