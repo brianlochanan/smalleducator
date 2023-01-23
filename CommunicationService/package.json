@@ -25,7 +25,7 @@
     "sails-mysql": "^1.0.1",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
-    "supertest": "^1.2.0",
+    "supertest": "^6.3.3",
     "write": "^1.0.3"
   },
   "devDependencies": {
